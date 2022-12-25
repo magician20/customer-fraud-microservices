@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+# Eureka Discovery Client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: fraud
+  output.ansi.enabled: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fraud
+    username: magician
+    password: password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    # Show or not log for each sql query
+    show-sql: true
+    # Initialize a Database Using JPA
+    generate-ddl: true
+    # a Hibernate feature that controls the behaviors, none(production-mode), validate, update, create, and create-drop
+    # Create database on every Time Server starts & drop old one (developer-mode)
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      # The SQL dialect makes Hibernate generate better SQL for the chosen database
+      hibernate:
+        # IDk had problem here solved it by remove that code below, spring handle by default
+        #            dialect: jdbc:postgresql://localhost:5432/fraud
+        # hibernate property for formatting the sql output
+        format-sql: true
+        # avoid a warning message in the logs when you start the spring-boot application.
+        # This bug is from hibernate which tries to retrieve some metadata from postgresql db
+        # and failed to find that and logs as a warning.
+        jdbc.lob.non_contextual_creation=true: true
+  zipkin:
+    base-url: http://localhost:9411
+
+# Trace every action
+management.tracing.sampling.probability: 1.0
+# traceID and spanId are predefined MDC keys - we want the logs to include them
+logging.pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"

@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+# Eureka Discovery Client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: api-gateway
+  output.ansi.enabled: always
+  zipkin:
+    base-url: http://localhost:9411
+  cloud:
+    gateway:
+      routes:
+        - id: customer
+          uri: lb://CUSTOMER
+          predicates:
+            - Path=/api/v1/customers/**
+
+# Trace every action
+management.tracing.sampling.probability: 1.0
+# traceID and spanId are predefined MDC keys - we want the logs to include them
+logging.pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
