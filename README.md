@@ -15,7 +15,7 @@ implemented by using below:
 - Spring Cloud 2022.0.0
 - Routing (openfeign)
 - Distributed Tracing (Brave bridge + micrometer & Zipkin)
-- Service Discobery (Eureka -> K8 )
+- Service Discovery (Eureka -> K8 )
 - Load Balancing (Spring Cloud Gateway)
 - AMQP (RabbitMQ)
 - Container (Docker)
