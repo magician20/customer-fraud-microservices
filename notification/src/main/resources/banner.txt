@@ -4,6 +4,5 @@
 |  | `   | ' '-' '   |  |   |  | |  .-' |  | \ `--. \ '-'  |   |  |   |  | ' '-' ' |  ||  |
 `--'  `--'  `---'    `--'   `--' `--'   `--'  `---'  `--`--'   `--'   `--'  `---'  `--''--'
 Powered by Spring Boot ${spring-boot.version}
-${application.title} ${application.version}
 
 

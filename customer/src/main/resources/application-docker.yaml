@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+# Eureka Discovery Client
+eureka:
+  client:
+    service-url:
+      defaultZone: http:///eureka-server:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+
+spring:
+  application:
+    name: customer
+  output.ansi.enabled: always
+  datasource:
+    url: jdbc:postgresql://postgres:5432/customer
+    username: magician
+    password: password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    # Show or not log for each sql query
+    show-sql: true
+    # Initialize a Database Using JPA
+    generate-ddl: true
+    # a Hibernate feature that controls the behaviors, none(production-mode), validate, update, create, and create-drop
+    # Create database on every Time Server starts & drop old one (developer-mode)
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      # The SQL dialect makes Hibernate generate better SQL for the chosen database
+      hibernate:
+        # IDk had problem here solved it by remove that code below, spring handle by default
+        #            dialect: jdbc:postgresql://localhost:5432/customer
+        # hibernate property for formatting the sql output
+        format-sql: true
+        # avoid a warning message in the logs when you start the spring-boot application.
+        # This bug is from hibernate which tries to retrieve some metadata from postgresql db
+        # and failed to find that and logs as a warning.
+        jdbc.lob.non_contextual_creation=true: true
+  zipkin:
+    base-url: http://zipkin:9411
+  rabbitmq:
+    addresses: rabbitmq:5672      #amq://rabbitmq:5672
+
+##  https://github.com/spring-projects/spring-data-jpa/issues/2717
+#            jakarta.persistence.sharedCache.mode: NONE
+#    # This will ensure, that after Hibernate schema creation is performed then additionally schema.sql
+#    # is read for any additional schema changes and data.sql is executed to populate the database.
+#    defer-datasource-initialization: true
+#  sql:
+#    # load data to initialize database using data.sql or import.sql or schema.sql
+#    init:
+#      mode: always
+
+
+# Trace every action
+management.tracing.sampling.probability: 1.0
+# traceID and spanId are predefined MDC keys - we want the logs to include them
+logging.pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+
+
