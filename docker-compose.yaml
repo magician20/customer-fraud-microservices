@@ -44,7 +44,7 @@ services:
       - spring
 
   rabbitmq:
-    image: rabbitmq:3.11.5-management-alpine
+    image: rabbitmq:3.11.6-management-alpine
     container_name: rabbitmq
     ports:
       - "5672:5672"  # for publish message to queue
@@ -52,30 +52,31 @@ services:
     networks:
       - spring
 
-  eureka-server:
-    image: amigoscode/eureka-server:latest
-    container_name: eureka-server
-    ports:
-      - "8761:8761"
-    networks:
-      - spring
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - zipkin
-
-  api-gateway:
-    image: magician66/apigateway:latest
-    container_name: api-gateway
-    ports:
-      - "8083:8083"
-    networks:
-      - spring
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - zipkin
-      - eureka-server
+## Removed Using K8s (handle Service discovery & LoadBalancing)
+#  eureka-server:
+#    image: amigoscode/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    networks:
+#      - spring
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    depends_on:
+#      - zipkin
+#
+#  api-gateway:
+#    image: magician66/apigateway:latest
+#    container_name: api-gateway
+#    ports:
+#      - "8083:8083"
+#    networks:
+#      - spring
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    depends_on:
+#      - zipkin
+#      - eureka-server
 
   customer:
     image: magician66/customer:latest

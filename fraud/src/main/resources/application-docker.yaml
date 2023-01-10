@@ -1,13 +1,12 @@
 server:
   port: 8081
 
-# Eureka Discovery Client
+# Eureka Discovery Client (Disabled for K8s)
 eureka:
   client:
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
-  instance:
-    preferIpAddress: true
+    enabled: false
 
 spring:
   application:

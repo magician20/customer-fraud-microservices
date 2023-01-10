@@ -21,6 +21,7 @@ public class NotificationService {
                 .toCustomerEmail(notificationRequest.toCustomerEmail())
                 .sender("Magician")
                 .message(notificationRequest.message())
+                //can replace with didn't use @EnableJpaAuditing @CreatedDate
                 .sentAt(LocalDateTime.now())
                 .build()
         );

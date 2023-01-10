@@ -5,6 +5,7 @@
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.web.client.RestTemplate;
 //
+//// old implementation for routing
 //@Configuration
 //public class CustomerConfig {
 //

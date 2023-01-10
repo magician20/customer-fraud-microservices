@@ -5,7 +5,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     enabled: false
 
 spring:
@@ -13,7 +13,7 @@ spring:
     name: fraud
   output.ansi.enabled: always
   datasource:
-    url: jdbc:postgresql://localhost:5432/fraud
+    url: jdbc:postgresql://postgres:5432/fraud
     username: magician
     password: password
     driverClassName: org.postgresql.Driver
@@ -26,7 +26,7 @@ spring:
     # a Hibernate feature that controls the behaviors, none(production-mode), validate, update, create, and create-drop
     # Create database on every Time Server starts & drop old one (developer-mode)
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     properties:
       # The SQL dialect makes Hibernate generate better SQL for the chosen database
       hibernate:
@@ -39,7 +39,7 @@ spring:
         # and failed to find that and logs as a warning.
         jdbc.lob.non_contextual_creation=true: true
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://zipkin:9411
 
 # Trace every action
 management.tracing.sampling.probability: 1.0
