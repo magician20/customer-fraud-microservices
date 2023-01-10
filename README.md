@@ -19,8 +19,7 @@ implemented by using below:
 - Routing (openfeign)
 - Distributed Tracing (Brave bridge + micrometer & Zipkin)
 - Service Discovery (Eureka -> K8 )
-- Load Balancing (Spring Cloud Gateway)
+- Load Balancing (Spring Cloud Gateway -> K8)
 - AMQP (RabbitMQ)
 - Container (Docker)
-- K8s
 - ......
