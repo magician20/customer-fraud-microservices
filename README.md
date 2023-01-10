@@ -3,6 +3,9 @@
 - Microservices Architecture Proposal:
 ![MQServices](https://user-images.githubusercontent.com/11742710/209483141-06d54d9f-ab68-4c3d-a522-ed2dc93f881e.png)
 
+- Microservices Architecture Proposal with K8s:
+
+
 implemented by using below:
 
 - Spring Boot 3.0.1
@@ -19,4 +22,5 @@ implemented by using below:
 - Load Balancing (Spring Cloud Gateway)
 - AMQP (RabbitMQ)
 - Container (Docker)
+- K8s
 - ......
