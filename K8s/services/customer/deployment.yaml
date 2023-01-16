@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification
+  name: customer
   labels:
-    app: notification
+    app: customer
 spec:
   replicas: 1 #we use one here because we create-drop database every time new pod created. (Production min 3)
   template:
     metadata:
-      name: notification
+      name: customer
       labels:
-        app: notification
+        app: customer
     spec:
       containers:
-        - name: notification
-          image: amigoscode/notification:latest
+        - name: customer
+          image: magician66/customer:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082
+            - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: kube
       restartPolicy: Always
   selector:
     matchLabels:
-      app: notification
+      app: customer
