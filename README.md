@@ -6,6 +6,9 @@
 - Microservices Architecture Proposal with K8s:
 ![K8s arch](https://user-images.githubusercontent.com/11742710/211629049-b5addd66-094f-4ba2-8290-2d011cb78ca7.png)
 
+- Test Cloud Linode with K8s:
+![Screenshot_20230117_123005](https://user-images.githubusercontent.com/11742710/212771503-390f18d2-a8f2-478d-a323-f5d321d2a44a.png)
+
 
 implemented by using below:
 
