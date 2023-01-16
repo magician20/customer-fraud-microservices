@@ -113,11 +113,11 @@
             <groupId>io.zipkin.reporter2</groupId>
             <artifactId>zipkin-reporter-brave</artifactId>
         </dependency>
-        <!-- Brave OpenZipkin URL sende -->
-        <dependency>
-            <groupId>io.zipkin.reporter2</groupId>
-            <artifactId>zipkin-sender-urlconnection</artifactId>
-        </dependency>
+        <!--  project doesn’t use Spring MVC or Spring WebFlux, Brave OpenZipkin URL needed -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.zipkin.reporter2</groupId>-->
+        <!--            <artifactId>zipkin-sender-urlconnection</artifactId>-->
+        <!--        </dependency>-->
         <!-- For Metrics -->
         <!--        <dependency>-->
         <!--            <groupId>io.micrometer</groupId>-->

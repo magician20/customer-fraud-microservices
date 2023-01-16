@@ -59,5 +59,8 @@ management.tracing.sampling.probability: 1.0
 # traceID and spanId are predefined MDC keys - we want the logs to include them
 logging.pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
-
-
+#  # Monitoring acuator endpoints
+#  # management.endpoints.web.exposure.include=health,metrics
+#  management:
+#    security:
+#      enabled: false

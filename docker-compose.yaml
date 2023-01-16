@@ -54,7 +54,7 @@ services:
 
 ## Removed Using K8s (handle Service discovery & LoadBalancing)
 #  eureka-server:
-#    image: amigoscode/eureka-server:latest
+#    image: magician66/eureka-server:latest
 #    container_name: eureka-server
 #    ports:
 #      - "8761:8761"
@@ -89,10 +89,10 @@ services:
       - spring
       - postgres
     depends_on:
-      - zipkin
-      - eureka-server
       - postgres
+      - zipkin
       - rabbitmq
+#      - eureka-server
 
   fraud:
     image: magician66/fraud:latest
@@ -105,10 +105,10 @@ services:
       - spring
       - postgres
     depends_on:
-      - zipkin
-      - eureka-server
       - postgres
+      - zipkin
       - rabbitmq
+#      - eureka-server
 
   notification:
     image: magician66/notification:latest
@@ -121,10 +121,10 @@ services:
       - spring
       - postgres
     depends_on:
-      - zipkin
-      - eureka-server
       - postgres
+      - zipkin
       - rabbitmq
+#      - eureka-server
 
 networks:
   postgres:

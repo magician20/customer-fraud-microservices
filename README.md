@@ -1,4 +1,4 @@
-# customerservices
+# customer services
 
 - Microservices Architecture Proposal:
 ![MQServices](https://user-images.githubusercontent.com/11742710/209483141-06d54d9f-ab68-4c3d-a522-ed2dc93f881e.png)
@@ -19,8 +19,8 @@ implemented by using below:
 - Spring Cloud 2022.0.0
 - Routing (openfeign)
 - Distributed Tracing (Brave bridge + micrometer & Zipkin)
-- Service Discovery (Eureka -> K8 )
-- Load Balancing (Spring Cloud Gateway -> K8)
+- Service Discovery (Eureka -> K8s )
+- Load Balancing (Spring Cloud Gateway -> K8s)
 - AMQP (RabbitMQ)
-- Container (Docker)
-- ......
+- Container (Docker -> K8s containerd)
+- K8s Deployment to Linode cloud
